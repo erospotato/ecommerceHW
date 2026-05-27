@@ -1,3 +1,5 @@
+import 'package:ecommercehw/constants/app_colors.dart';
+import 'package:ecommercehw/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -174,87 +176,74 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildHeader() {
-    return Row(
-      children: [
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              Row(
-                children: [
-                  Text(
-                    'Hello, Ratha',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w700,
-                      color: Color(0xFF111827),
-                    ),
-                  ),
-                  SizedBox(width: 6),
-                  Text('👋', style: TextStyle(fontSize: 20)),
-                ],
-              ),
-
-              SizedBox(height: 4),
-
-              Text(
-                'Find your best product',
-                style: TextStyle(fontSize: 13, color: Color(0xFF9CA3AF)),
-              ),
-            ],
-          ),
-        ),
-
-        Stack(
+  return Row(
+    children: [
+      Expanded(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: 44,
-              height: 44,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(14),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.03),
-                    blurRadius: 6,
-                    offset: const Offset(0, 2),
-                  ),
-                ],
-              ),
-              child: const Icon(Icons.notifications_none_rounded),
+            Row(
+              children: [
+                Text('Hello, Ratha ', style: AppTextStyles.heading1),
+                const Text('👋', style: TextStyle(fontSize: 22)),
+              ],
             ),
-
-            Positioned(
-              right: 10,
-              top: 10,
-              child: Container(
-                width: 8,
-                height: 8,
-                decoration: const BoxDecoration(
-                  color: Colors.red,
-                  shape: BoxShape.circle,
-                ),
-              ),
+            const SizedBox(height: 4),
+            Text(
+              'Find your best product',
+              style: AppTextStyles.bodySmall,
             ),
           ],
         ),
+      ),
 
-        const SizedBox(width: 10),
-
-        Container(
-          width: 44,
-          height: 44,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(14),
-            image: const DecorationImage(
-              fit: BoxFit.cover,
-              image: AssetImage('assets/images/profile.png'),
+      Stack(
+        clipBehavior: Clip.none,
+        children: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.notifications_outlined,
+              color: AppColors.textSecondary,
             ),
           ),
+
+          Positioned(
+            right: 6,
+            top: 6,
+            child: Container(
+              width: 16,
+              height: 16,
+              decoration: const BoxDecoration(
+                color: Colors.red,
+                shape: BoxShape.circle,
+              ),
+              child: const Center(
+                child: Text(
+                  '3',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 9,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+
+      const SizedBox(width: 8),
+
+      const CircleAvatar(
+        radius: 22,
+        backgroundImage: NetworkImage(
+          'https://i.pravatar.cc/100?img=12',
         ),
-      ],
-    );
-  }
+      ),
+    ],
+  );
+}
 
   Widget _buildSearchBar() {
     return Container(
@@ -307,124 +296,124 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-Widget _buildBanner() {
-  return Column(
-    children: [
-      Container(
-        height: 190,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(28),
-          gradient: const LinearGradient(
-            colors: [Color(0xFFEEF1FF), Color(0xFFE3E8FF)],
+  Widget _buildBanner() {
+    return Column(
+      children: [
+        Container(
+          height: 190,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(28),
+            gradient: const LinearGradient(
+              colors: [Color(0xFFEEF1FF), Color(0xFFE3E8FF)],
+            ),
           ),
-        ),
 
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(28),
-          child: Padding(
-            padding: const EdgeInsets.all(22),
-            child: Row(
-              children: [
-                // LEFT TEXT
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Summer Sale',
-                        style: TextStyle(
-                          color: Color(0xFF5B5FEF),
-                          fontWeight: FontWeight.w600,
-                          fontSize: 13,
-                        ),
-                      ),
-
-                      const SizedBox(height: 8),
-
-                      const Text(
-                        'Up to 50% OFF',
-                        style: TextStyle(
-                          height: 1.1,
-                          fontSize: 26,
-                          fontWeight: FontWeight.w800,
-                          color: Color(0xFF111827),
-                        ),
-                      ),
-
-                      const SizedBox(height: 8),
-
-                      Text(
-                        'Discounted items',
-                        style: TextStyle(
-                          color: Colors.grey.shade600,
-                          fontSize: 13,
-                        ),
-                      ),
-
-                      const SizedBox(height: 14),
-
-                      ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFF5B5FEF),
-                          foregroundColor: Colors.white,
-                          elevation: 0,
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 18,
-                            vertical: 10,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(28),
+            child: Padding(
+              padding: const EdgeInsets.all(22),
+              child: Row(
+                children: [
+                  // LEFT TEXT
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Summer Sale',
+                          style: TextStyle(
+                            color: Color(0xFF5B5FEF),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 13,
                           ),
                         ),
-                        child: const Text('Shop Now'),
-                      ),
-                    ],
-                  ),
-                ),
 
-                const SizedBox(width: 10),
+                        const SizedBox(height: 8),
 
-                // RIGHT IMAGE (SAFE VERSION)
-                SizedBox(
-                  width: 120,
-                  height: 120,
-                  child: Image.asset(
-                    'assets/images/banner_headphone.png',
-                    fit: BoxFit.contain,
+                        const Text(
+                          'Up to 50% OFF',
+                          style: TextStyle(
+                            height: 1.1,
+                            fontSize: 26,
+                            fontWeight: FontWeight.w800,
+                            color: Color(0xFF111827),
+                          ),
+                        ),
+
+                        const SizedBox(height: 8),
+
+                        Text(
+                          'Discounted items',
+                          style: TextStyle(
+                            color: Colors.grey.shade600,
+                            fontSize: 13,
+                          ),
+                        ),
+
+                        const SizedBox(height: 14),
+
+                        ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFF5B5FEF),
+                            foregroundColor: Colors.white,
+                            elevation: 0,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 18,
+                              vertical: 10,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                          child: const Text('Shop Now'),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+
+                  const SizedBox(width: 10),
+
+                  // RIGHT IMAGE (SAFE VERSION)
+                  SizedBox(
+                    width: 120,
+                    height: 120,
+                    child: Image.asset(
+                      'assets/images/banner_headphone.png',
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
-      ),
 
-      const SizedBox(height: 12),
+        const SizedBox(height: 12),
 
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: List.generate(
-          4,
-          (index) => Container(
-            margin: const EdgeInsets.symmetric(horizontal: 3),
-            width: index == 0 ? 18 : 6,
-            height: 6,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: index == 0
-                  ? const Color(0xFF5B5FEF)
-                  : Colors.grey.shade300,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: List.generate(
+            4,
+            (index) => Container(
+              margin: const EdgeInsets.symmetric(horizontal: 3),
+              width: index == 0 ? 18 : 6,
+              height: 6,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: index == 0
+                    ? const Color(0xFF5B5FEF)
+                    : Colors.grey.shade300,
+              ),
             ),
           ),
         ),
-      ),
-    ],
-  );
-}
-  
+      ],
+    );
+  }
+
   Widget _buildTitle({required String title}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -493,7 +482,7 @@ Widget _buildBanner() {
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
         itemCount: products.length,
-        separatorBuilder: (_, __) => const SizedBox(width: 14),
+        separatorBuilder: (_, _) => const SizedBox(width: 14),
         itemBuilder: (context, index) {
           return _buildProductCard(products[index]);
         },
